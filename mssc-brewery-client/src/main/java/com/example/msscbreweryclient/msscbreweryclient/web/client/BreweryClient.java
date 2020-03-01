@@ -35,4 +35,8 @@ public class BreweryClient {
     	System.out.println("Apihost atandı");
         this.apihost = apihost;
     }
+    
+    public void updateBeer(UUID id, BeerDto beer) {
+    	restTemplate.put(apihost + BEER_PATH_V1+"/"+id.toString(), beer);
+    }
 }

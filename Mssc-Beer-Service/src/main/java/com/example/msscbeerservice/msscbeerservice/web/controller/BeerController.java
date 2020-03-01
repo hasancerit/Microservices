@@ -2,6 +2,7 @@ package com.example.msscbeerservice.msscbeerservice.web.controller;
 
 import java.util.UUID;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.msscbeerservice.msscbeerservice.web.model.BeerDto;
 
-@RequestMapping("/api/v1/beer/")
+@RequestMapping("/api/v1/beer")
 @RestController
 public class BeerController {
 	@GetMapping("/{id}")
@@ -24,7 +25,11 @@ public class BeerController {
 	
 	@PostMapping
 	public ResponseEntity<BeerDto> saveNewBeer(@RequestBody BeerDto beerDto){
-		return new ResponseEntity<BeerDto>(HttpStatus.CREATED);
+        HttpHeaders headers = new HttpHeaders();
+        //todo add hostname to url
+        headers.add("Location", "/api/v1/beer/" + UUID.randomUUID().toString());
+
+        return new ResponseEntity<BeerDto>(headers, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{id}")
