@@ -2,6 +2,7 @@ package com.example.msscbreweryclient.msscbreweryclient.web.client;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.net.URI;
 import java.util.UUID;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -21,6 +22,16 @@ class BreweryClientTest {
 		BeerDto dto = breweryClient.getBeerById(UUID.randomUUID());
 		
 		assertNotNull(dto);
+	}
+	
+	@Test
+	void saveNewBeer() {
+		BeerDto dto = BeerDto.builder().build();
+		
+		URI uri = breweryClient.saveNewBeer(dto);
+		
+		assertNotNull(uri);
+		System.out.println(uri.toString());
 	}
 
 }
