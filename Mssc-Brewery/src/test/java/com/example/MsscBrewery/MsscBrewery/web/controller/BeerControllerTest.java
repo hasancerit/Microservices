@@ -40,7 +40,6 @@ public class BeerControllerTest {
 
     @Before
     public void setUp() {
-    	System.out.println("setup");
         validBeer = BeerDto.builder().id(UUID.randomUUID())
                 .beerName("Beer1")
                 .beerStyle("PALE_ALE")
@@ -81,6 +80,7 @@ public class BeerControllerTest {
         //given
         BeerDto beerDto = validBeer;
         beerDto.setId(null);
+        beerDto.setBeerName(null);
         String beerDtoJson = objectMapper.writeValueAsString(beerDto);
 
         //when
