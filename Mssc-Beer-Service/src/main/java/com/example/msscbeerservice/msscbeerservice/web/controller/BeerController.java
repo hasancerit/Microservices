@@ -2,6 +2,8 @@ package com.example.msscbeerservice.msscbeerservice.web.controller;
 
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +26,7 @@ public class BeerController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<BeerDto> saveNewBeer(@RequestBody BeerDto beerDto){
+	public ResponseEntity<BeerDto> saveNewBeer(@Valid @RequestBody BeerDto beerDto){
         HttpHeaders headers = new HttpHeaders();
         //todo add hostname to url
         headers.add("Location", "/api/v1/beer/" + UUID.randomUUID().toString());
@@ -33,7 +35,7 @@ public class BeerController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<BeerDto> updateBeerById(@PathVariable UUID id,@RequestBody BeerDto beerDto){	
+	public ResponseEntity<BeerDto> updateBeerById(@PathVariable UUID id,@Valid @RequestBody BeerDto beerDto){	
 		return new ResponseEntity<BeerDto>(HttpStatus.NO_CONTENT);
 	}
 }
