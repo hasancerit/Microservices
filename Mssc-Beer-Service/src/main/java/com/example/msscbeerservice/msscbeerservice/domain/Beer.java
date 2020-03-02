@@ -1,8 +1,9 @@
 package com.example.msscbeerservice.msscbeerservice.domain;
 
 import java.math.BigDecimal;
-import java.security.Timestamp;
 import java.sql.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 import javax.annotation.Generated;
@@ -42,16 +43,16 @@ public class Beer {
 	
 	@CreationTimestamp
 	@Column(updatable = false)
-	private Date createdDate;
+	private Timestamp createdDate;
 	
 	@UpdateTimestamp
-	private Date lastModifiedDate;
+	private Timestamp lastModifiedDate;
 	
 	private String beerName;
 	private String beerStyle;
 	
 	@Column(unique = true)
-	private Long upc;
+	private String upc;
 	private BigDecimal price;
 	
 	private Integer minOnHand;

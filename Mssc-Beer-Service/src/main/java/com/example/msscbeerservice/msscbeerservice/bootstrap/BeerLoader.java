@@ -15,9 +15,9 @@ import lombok.RequiredArgsConstructor;
 @Component
 public class BeerLoader implements CommandLineRunner {
 
-    public static final Long BEER_1_UPC = 0631234200036L;
-    public static final Long BEER_2_UPC = 0631234200037L;
-    public static final Long BEER_3_UPC = 0631234200035L;
+    public static final String BEER_1_UPC = "0631234200036";
+    public static final String BEER_2_UPC = "0631234200037";
+    public static final String BEER_3_UPC = "0631234200035";
 
     private final BeerRepository beerRepository;
 
